@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineApp: Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="icono/camara-de-video.png">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
+            <span class="logo">CineApp</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="soporte.html">Soporte</a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal de Login -->
+    <main class="login-section">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn primary">Ingresar</button>
+            </form>
+            <p class="register-link">¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+        </div>
+    </main>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineApp: Regitrarse</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="icon" href="icono/camara-de-video.png">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
+            <span class="logo">CineApp</span>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html">Inicio</a>
+            <a href="soporte.html">Soporte</a>
+        </div>
+    </nav>
+
+    <!-- Contenedor del Formulario de Registro -->
+    <div class="form-container">
+        <h2>Crea una cuenta</h2>
+        <p>Es rápido y fácil.</p>
+        <form>
+            <!-- Nombre y Apellido -->
+            <div class="form-group">
+                <input type="text" name="firstName" placeholder="Nombre" required>
+                <input type="text" name="lastName" placeholder="Apellido" required>
+            </div>
+
+            <!-- Correo electronico-->
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+            </div>
+
+            <!-- Telefono -->
+            <div class="form-group">
+              <input type="text" name="cell" placeholder="Telefono" required>
+            </div>
+
+            <!-- Usuario y Contraseña -->
+            <div class="form-group">
+                <input type="text" name="usuario" placeholder="Usuario" required>
+                <input type="password" name="password" placeholder="Contraseña Nueva" required>
+            </div>
+
+            <!-- Botón de Registro -->
+            <button type="submit" class="btn-register">Registrarse</button>
+            
+            <p class="login-link">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+        </form>
+    </div>
+</body>
+</html>
