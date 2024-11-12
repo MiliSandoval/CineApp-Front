@@ -38,17 +38,18 @@
             <form id="cancelForm">
                 <div class="form-group">
                     <label for="comprobante">Número de Comprobante:</label>
-                    <input type="text" id="comprobante" name="comprobante" placeholder="Ingrese el número del comprobante" required>
+                    <input type="text" id="comprobante" placeholder="Ingrese el número del comprobante">
                 </div>
-                <button type="submit">Cancelar Compra</button>
+                <button onclick="cancelarCompra(document.getElementById('comprobante').value)">Cancelar Compra</button>
+                
             </form>
 
             <div id="result" class="result">
-                <!-- Aca aparecen los resultados de la cancelación -->
+
             </div>
         </div>
     </main>
-
+    
     <!-- Pie de Página -->
     <footer class="footer">
         <div class="footer-content">
@@ -69,7 +70,7 @@
         </div>
     </footer>
 
-    <script src="..."></script>
+    <script src="js/cancelarCompra.js"></script>
 </body>
 </html>
 
