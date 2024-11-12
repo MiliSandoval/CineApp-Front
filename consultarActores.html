@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine - Panel principal</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>CineApp: Consultar Actores</title>
+    <link rel="stylesheet" href="css/consultarActores.css">
     <link rel="icon" href="icono/camara-de-video.png">
 </head>
 <body>
-     <!-- Barra de Navegación -->
+    <!-- Barra de Navegación -->
     <nav class="navbar">
-        <div class="navbar-logo">
+        <div class="logo-container">
             <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
             <span class="logo">CineApp</span>
         </div>
         <div class="dropdown">
             <button>Opciones</button>
             <div class="dropdown-content">
+                <a href="main.html">Inicio</a>
                 <a href="consultarSucursales.html">Consultar Sucursales</a>
                 <a href="consultarFunciones.html">Consultar Funciones</a>
                 <a href="consultarPromociones.html">Consultar Promociones</a> 
@@ -30,30 +31,26 @@
         </div>
     </nav>
 
-    <!-- Imagenes de peliculas de fondo -->
-    <section class="background-grid">
-        <div class="image-box"><img src="img/Mufasa.png" alt="Película 1"></div>
-        <div class="image-box"><img src="img/Barbie.webp" alt="Película 2"></div>
-        <div class="image-box"><img src="img/Joker.avif" alt="Película 3"></div>
-        <div class="image-box"><img src="img/Sonrie.jpg" alt="Película 1"></div>
-        <div class="image-box"><img src="img/SuperMascotas.webp" alt="Película 2"></div>
-        <div class="image-box"><img src="img/Tornados.jpg" alt="Película 3"></div>
-        <div class="image-box"><img src="img/KunFuPanda4.jpg" alt="Película 1"></div>
-        <div class="image-box"><img src="img/PlanetaSimios.jpeg" alt="Película 2"></div>
-        <div class="image-box"><img src="img/RobotSalvaje.jpg" alt="Película 3"></div>
-        <div class="image-box"><img src="img/Deadpool.jpg" alt="Película 3"></div>
-        <div class="image-box"><img src="img/Moana.jpg" alt="Película 1"></div>
-        <div class="image-box"><img src="img/Minions.webp" alt="Película 2"></div>
-        <div class="image-box"><img src="img/Intensamente.webp" alt="Película 1"></div>
-        <div class="image-box"><img src="img/Venom.webp" alt="Película 2"></div>
-        <div class="image-box"><img src="img/WinniPooh.jpg" alt="Película 3"></div>
-        <div class="image-box"><img src="img/Elemental.jpeg" alt="Película 1"></div>
-        <div class="image-box"><img src="img/BadBoys.jpg" alt="Película 2"></div>
-        <div class="image-box"><img src="img/Garfield.webp" alt="Película 3"></div>
-    </section>
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Consultar Actores de la Película</h1>
+            <form id="actorForm">
+                <div class="form-group">
+                    <label for="movieID">ID de la Película:</label>
+                    <input type="text" id="movieID" name="movieID" placeholder="Ingrese el ID de la película" required>
+                </div>
+                <button type="submit">Consultar Actores</button>
+            </form>
 
-     <!-- Pie de Página -->
-     <footer class="footer">
+            <div id="result" class="result">
+                <!-- Aca aparecen los resultados de los actores -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
         <div class="footer-content">
             <div class="social-media">
                 <a href="https://facebook.com" target="_blank">
@@ -71,5 +68,7 @@
             <p>&copy; 2024 CineApp. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script src="..."></script>
 </body>
 </html>

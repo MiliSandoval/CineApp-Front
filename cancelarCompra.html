@@ -14,21 +14,60 @@
           <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
          <span class="logo">CineApp</span>
         </div>
+        <div class="dropdown">
+            <button>Opciones</button>
+            <div class="dropdown-content">
+                <a href="main.html">Inicio</a>
+                <a href="consultarSucursales.html">Consultar Sucursales</a>
+                <a href="consultarFunciones.html">Consultar Funciones</a>
+                <a href="consultarPromociones.html">Consultar Promociones</a> 
+                <a href="consultarPeliculas.html">Consultar Películas</a>
+                <a href="consultarActores.html">Consultar Actores</a>
+                <a href="consultarButaca.html">Consultar Butacas disponibles</a>
+                <a href="reservarButaca.html">Reservar Butaca</a>
+                <a href="crearComprobante.html">Crear comprobante</a>
+                <a href="cancelarCompra.html">Cancelar Compra</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <h1>Cancelar Compra</h1>
-        <form id="cancelForm">
-            <label for="reservationId">Número de Reserva:</label>
-            <input type="text" id="reservationId" name="reservationId" required placeholder="Ingresa tu número de reserva">
-    
-            <button type="submit">Cancelar Compra</button>
-        </form>
-    
-        <div id="resultMessage" class="hidden">
-            <p id="message"></p>
+     <!-- Contenido Principal -->
+     <main class="main-content">
+        <div class="container">
+            <h1>Cancelar Compra</h1>
+            <form id="cancelForm">
+                <div class="form-group">
+                    <label for="comprobante">Número de Comprobante:</label>
+                    <input type="text" id="comprobante" name="comprobante" placeholder="Ingrese el número del comprobante" required>
+                </div>
+                <button type="submit">Cancelar Compra</button>
+            </form>
+
+            <div id="result" class="result">
+                <!-- Aca aparecen los resultados de la cancelación -->
+            </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="icono/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="icono/X.png" alt="Twitter">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="icono/Instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CineApp. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script src="..."></script>
 </body>

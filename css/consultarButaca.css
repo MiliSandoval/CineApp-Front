@@ -73,62 +73,135 @@
     font-weight: bold;
 }
 
-/* Contenedor de Preguntas Frecuentes */
-.faq-section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.faq-section h2 {
-    font-size: 28px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Estilos para el tipo acordeón */
-.faq-item {
-    margin-bottom: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-.faq-label {
-    display: block;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+/* Menu desplegable (opciones) */
+.dropdown button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: #eee;
-    font-family: Arial, sans-serif;
-}
-
-.faq-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 15px;
     font-size: 16px;
-    color: #555;
-    font-family: Arial, sans-serif;
 }
 
-/* Estilos cuando el acordeón está abierto */
-input[type="checkbox"]:checked ~ .faq-content {
-    max-height: 150px; 
-    padding: 15px;
+.dropdown button:hover {
+    background-color: #cce7ff;
 }
 
-input[type="checkbox"] {
-    display: none; /* Oculta el checkbox */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 5px;
+    right: 0; 
+}
+
+.dropdown-content a {
+    color: #000000;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Formulario de consultar butacas disponibles */
+.main-content {
+    padding: 5.8rem;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    display: none;
+}
+
+.result p {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+}
+
+.available-seats {
+    margin-top: 20px;
+}
+
+.seat-item {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.seat-item span {
+    font-weight: bold;
 }
 
 /* Pie de página */
@@ -154,7 +227,7 @@ input[type="checkbox"] {
 }
 
 .social-media img:hover {
-    filter: brightness(0.8); 
+    filter: brightness(0.8);
 }
 
 .footer-bottom {
@@ -175,6 +248,4 @@ input[type="checkbox"] {
     object-fit: contain; 
     transition: filter 0.3s;
 }
-
-
 
