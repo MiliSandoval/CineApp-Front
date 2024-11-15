@@ -25,6 +25,7 @@
                 <a href="consultarActores.html">Consultar Actores</a>
                 <a href="consultarButaca.html">Consultar Butacas disponibles</a>
                 <a href="reservarButaca.html">Reservar Butaca</a>
+                <a href="editarPelicula.html">Editar película</a>
                 <a href="crearComprobante.html">Crear comprobante</a>
                 <a href="cancelarCompra.html">Cancelar Compra</a>
             </div>
@@ -37,8 +38,27 @@
             <h1>Consultar Sucursales</h1>
             <form id="branchForm">
                 <div class="form-group">
-                    <label for="neighborhood">Barrio:</label>
-                    <input type="text" id="neighborhood" name="neighborhood" placeholder="Ingrese el barrio" required>
+                    <label for="functionType">Barrio:</label>
+                    <select id="functionType" name="functionType" required>
+                        <option value="">Seleccione el ID de su barrio</option>
+                        <option value="1">1= Centro, Córdoba</option>
+                        <option value="2">2= Alta Córdoba, Córdoba</option>
+                        <option value="3">3= Nueva Córdoba, Córdoba</option>
+                        <option value="4">4= San Vicente, Córdoba</option>
+                        <option value="5">5= Centro, San Francisco</option>
+                        <option value="6">6= Sarmiento, San Francisco</option>
+                        <option value="7">7= Los Nogales, San Francisco</option>
+                        <option value="8">8= Sagrado Corazón, Lomas de Zamora</option>
+                        <option value="9">9= Centro, Lomas de Zamora</option>
+                        <option value="10">10= Quilmes, Buenos Aires</option>
+                        <option value="11">11= Liniers, Buenos Aires</option>
+                        <option value="12">12= Rosario Centro, Rosario</option>
+                        <option value="13">13= Echesortu</option>
+                        <option value="14">14= Cabaña Leiva, Santa Fé</option>
+                        <option value="15">15= Barrio El Pozo, Santa Fé</option>
+                        <option value="16">16= Termas, Santiago del Estero</option>
+                        <option value="17">17= La Banda, Santiago del Estero</option>
+                    </select>
                 </div>
                 <button type="submit">Consultar Sucursal Más Cercana</button>
             </form>

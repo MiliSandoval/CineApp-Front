@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineApp: Reserva de butaca</title>
-    <link rel="stylesheet" href="css/reservarButaca.css">
+    <title>CineApp: Editar película</title>
+    <link rel="stylesheet" href="css/editarPelicula.css">
     <link rel="icon" href="icono/camara-de-video.png">
 </head>
 <body>
     <!-- Barra de Navegación -->
     <nav class="navbar">
         <div class="logo-container">
-          <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
-         <span class="logo">CineApp</span>
+            <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
+            <span class="logo">CineApp</span>
         </div>
         <div class="dropdown">
             <button>Opciones</button>
@@ -35,21 +35,43 @@
     <!-- Contenido Principal -->
     <main class="main-content">
         <div class="container">
-            <h1>Reservar Butaca</h1>
-            <form id="reservationForm">
+            <h1>Editar Película</h1>
+            <form id="movieForm">
                 <div class="form-group">
-                    <label for="movieId">ID de la película:</label>
-                    <input type="text" id="movieId" name="movieId" placeholder="Ingrese el ID de la película" required>
+                    <label for="namemovie">Título:</label>
+                    <input type="text" id="namemovie" name="namemovie" placeholder="Edite o mantenga el título de la Película" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="ticketNumber">Número de Ticket de Compra:</label>
-                    <input type="text" id="ticketNumber" name="ticketNumber" placeholder="Ingrese el número de ticket" required>
+                    <label for="durationmovie">Duración:</label>
+                    <input type="text" id="durationmovie" name="durationmovie" placeholder="Edite o mantenga la Duración de la Película" required>
                 </div>
-                <button type="submit">Verificar Reserva</button>
+
+                <div class="form-group">
+                    <label for="generos">Selecciona un género:</label>
+                    <select class="form-select" id="generos" name="generos"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="yearmovie">Año Lanzamiento:</label>
+                    <input type="text" id="yearmovie" name="yearmovie" placeholder="Edite o mantenga el Año de Lanzamiento de la Película" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="moviepremiere">Fecha Estreno:</label>
+                    <input type="date" id="moviepremiere" name="moviepremiere" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clasmovie">Clasificación:</label>
+                    <input type="text" id="clasmovie" name="clasmovie" placeholder="Edite o mantenga la Clasificación de la Película" required>
+                </div>
+
+                <button type="submit">Editar</button>
             </form>
 
             <div id="result" class="result">
-                <!-- Aca aparecen los resultados de la verificación -->
+                <!-- Aca aparecen los resultados -->
             </div>
         </div>
     </main>
@@ -74,6 +96,6 @@
         </div>
     </footer>
 
-    <script src="..."></script>
+    <script src="js/editarPelicula.js"></script>
 </body>
 </html>

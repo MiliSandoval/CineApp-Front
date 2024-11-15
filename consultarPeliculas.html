@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineApp: Consultar peliculas</title>
-    <link rel="stylesheet" href="css/consultarPeliculas.css">
+    <link rel="stylesheet" href="css/consultarPelis.css">
     <link rel="icon" href="icono/camara-de-video.png">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="logo-container">
           <img src="icono/camara-de-video.png" alt="Logo CineApp" class="logo">
-         <span class="logo">CineApp</span>
+          <span class="logo">CineApp</span>
         </div>
         <div class="dropdown">
             <button>Opciones</button>
@@ -25,6 +25,7 @@
                 <a href="consultarActores.html">Consultar Actores</a>
                 <a href="consultarButaca.html">Consultar Butacas disponibles</a>
                 <a href="reservarButaca.html">Reservar Butaca</a>
+                <a href="editarPelicula.html">Editar película</a>
                 <a href="crearComprobante.html">Crear comprobante</a>
                 <a href="cancelarCompra.html">Cancelar Compra</a>
             </div>
@@ -37,18 +38,30 @@
             <h1>Buscar Película</h1>
             <form id="movieForm">
                 <div class="form-group">
-                    <label for="movieId">ID de la película:</label>
-                    <input type="text" id="movieId" name="movieId" placeholder="Ingrese el ID de la película" required>
+                    <label for="genero">Selecciona un género:</label>
+                    <select class="form-select" id="generos"></select>
                 </div>
-                <div class="form-group">
-                    <label for="genre">ID del genero:</label>
-                    <input type="text" id="genre" name="genre" placeholder="Ingrese el ID del genero" required>
-                </div>
-                <button type="submit">Buscar Película</button>
+                <button type="button" class="btn btn-primary" onclick="consultar_peliculas()">Consultar</button>
             </form>
-
+            
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Duración</th>
+                        <th>Año Lanzamiento</th>
+                        <th>Fecha de Estreno</th>
+                        <th>Clasificación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+            
+            <!-- Resultados de la búsqueda -->
             <div id="result" class="result">
-                <!-- Aca aparecen los resultados de la búsqueda -->
+            <!-- Aca aparecen los resultados -->
             </div>
         </div>
     </main>
@@ -73,6 +86,6 @@
         </div>
     </footer>
 
-    <script src="..."></script>
+    <script src="js/consultarPeliculas.js"></script>
 </body>
 </html>
