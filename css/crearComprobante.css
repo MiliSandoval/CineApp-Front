@@ -118,78 +118,92 @@
 
 /* Estilos para la página de crear comprobante */
 .main-content {
-    padding: 2rem;
-    background-color: #f9f9f9;
+    padding: 20px;
 }
 
 .container {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+/* Formularios */
+form {
+    display: grid;
+    gap: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input {
+select, input[type="number"], button {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 button {
-    width: 100%;
-    padding: 12px;
-    background-color: #3498db;
-    color: white;
+    background-color: #0056b3;
+    color: #fff;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #003d80;
 }
 
-.result {
-    margin-top: 30px;
+#total-price {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+/* Contenedor del Mapa de Butacas */
+.cinema-seats-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto repeat(5, 50px); /* Ajusta la cantidad de columnas */
+    gap: 10px;
     padding: 20px;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
 }
 
-.result p {
-    margin-bottom: 10px;
+.cinema-seats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Ajusta el número de columnas según el número de butacas por fila */
+    gap: 10px; /* Espacio entre los asientos */
+    margin-top: 20px;
 }
 
-.error {
-    color: red;
+.seat {
+    background-color: #7d86a1; /* Color azul */
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 3px solid #004C99;
+    transition: background-color 0.3s;
+    border-color: #344c8d;
 }
 
-.success {
-    color: green;
+.seat:hover {
+    background-color: #0056b3;
+}
+
+/* Puedes agregar clases adicionales para butacas reservadas o seleccionadas */
+.seat.reserved {
+    background-color: #D3D3D3;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: #28a745;
 }
 
 /* Pie de Página */

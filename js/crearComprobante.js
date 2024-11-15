@@ -156,7 +156,15 @@ async function fetchAvailableSeats() {
 
     try {
         const response = await fetch(`https://localhost:7254/api/Cine/butacas/disponibles?ticket=${selectedFunctionId}`);
+
+        if (!response.ok) {
+            const errorMessage = await response.text(); 
+            alert(errorMessage);  
+            return; 
+        }
+
         const data = await response.json();
+
         const seatMap = document.getElementById("seat-map");
         seatMap.innerHTML = ""; 
 
@@ -170,7 +178,8 @@ async function fetchAvailableSeats() {
         });
     } catch (error) {
         console.error('Error al obtener butacas:', error);
-    }
+        alert('No hay butacas para esta funcion.');
+    }
 }
 
 function toggleSeatSelection(seatId) {
