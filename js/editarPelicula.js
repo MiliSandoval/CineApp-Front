@@ -87,7 +87,7 @@ async function crearPelicula(event) {
         const responseText = await response.text();
         
         if (response.ok) {
-            alert("Película creada exitosamente");
+            alert("Película agregada exitosamente");
 
             document.getElementById('movieForm').reset();
             window.location.href = 'main.html';
@@ -100,7 +100,7 @@ async function crearPelicula(event) {
             }
         }
     } catch (error) {
-        console.error("Error al crear la película:", error);
+        console.error("Error al agregar la película:", error);
         alert("Error al conectar con el servidor. Por favor, intente nuevamente.");
     }
 }
