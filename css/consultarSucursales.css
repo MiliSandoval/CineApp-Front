@@ -268,4 +268,117 @@ select {
     transition: filter 0.3s;
 }
 
+/* Estilos generales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color:  #3498db;
+    color: white;
+    font-size: 16px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilo de los bordes de la tabla */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+/* Estilo del contenedor de la tabla */
+#result {
+    overflow-x: auto;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Estilo para el encabezado de la tabla */
+thead {
+    background-color: #2c3e50;
+}
+
+thead th {
+    color: white;
+}
+
+/* Estilo de la alerta si no hay sucursales */
+#noResults {
+    color: #f44336;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #fdd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Estilo general para el select */
+select {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    appearance: none; /* Elimina la apariencia nativa del navegador */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Estilo cuando el select está enfocado */
+select:focus {
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para las opciones dentro del select */
+select option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Estilo del contenedor del select con icono */
+.select-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el icono (la flecha del select) */
+.select-container::after {
+    content: '▼'; /* Icono de la flecha hacia abajo */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+}
+
 

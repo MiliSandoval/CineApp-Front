@@ -26,7 +26,6 @@ async function cargar_generos() {
     }
 }
 
-
 async function consultar_peliculas() {
     try {
         const $generos = document.getElementById("generos");
@@ -74,50 +73,148 @@ function formatearFecha(fecha) {
 
 document.addEventListener('DOMContentLoaded', cargar_generos);
 
-async function editarpelicula(id){
-    try {
-            const response = await fetch(`https://localhost:7254/api/Cine/${id}`, {method: 'GET'});
-            if(response.ok){
-                const peli = await response.json()
-                console.log(peli)
-                cargar_vista('editarpelicula.html', (peli)=>{
-                    console.log(peli)
-                    $namemovie = document.getElementById('namemovie')
-                    $durationmovie = document.getElementById('durationmovie')
-                    $generos = document.getElementById('generos')
-                    $yearmovie = document.getElementById('yearmovie')
-                    $moviepremiere = document.getElementById('moviepremiere')
-                    $clasmovie = document.getElementById('clasmovie')
 
-                    $namemovie.value = peli.namemovie
-                    $durationmovie.value  = peli.durationmovie
-                    $generos.value  = peli.generos
-                    $yearmovie.value  = peli.yearmovie
-                    $moviepremiere.value  = peli.moviepremiere
-                    $clasmovie.value  = peli.clasmovie
-                })    
-                
-            }else{
-                alert('No se pudo editar la pelicula');
-            }
+async function editar_pelicula(id) {
+    try {
+        const response = await fetch(`https://localhost:7254/api/Cine/${id}`);
+        if (response.ok) {
+            const pelicula = await response.json();
+
+            window.location.href = `editarpelicula.html?id=${id}`;
+        } else {
+            alert('No se pudo obtener la información de la película');
+        }
     } catch (error) {
-        console.error("Error al registrar la baja de película:", error);
+        console.error("Error al obtener datos de la película:", error);
+        alert('Error al cargar la información de la película');
     }
 }
 
+
+async function cargarDatosPelicula() {
+
+    if (window.location.pathname.includes('editarpelicula.html')) {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        
+        if (id) {
+            try {
+                const response = await fetch(`https://localhost:7254/api/Cine/${id}`);
+                if (response.ok) {
+                    const pelicula = await response.json();
+                    
+                    // Cargar los datos en el formulario
+                    document.getElementById('namemovie').value = pelicula.titulo;
+                    document.getElementById('durationmovie').value = pelicula.duracion;
+                    document.getElementById('yearmovie').value = pelicula.anio_lanzamiento;
+                    document.getElementById('moviepremiere').value = formatearFechaInput(pelicula.fecha_estreno);
+                    document.getElementById('clasmovie').value = pelicula.clasificacion;
+                    
+
+                    await cargar_generos();
+                    document.getElementById('generos').value = pelicula.id_genero;
+                }
+            } catch (error) {
+                console.error("Error al cargar datos de la película:", error);
+                alert('Error al cargar la información de la película');
+            }
+        }
+    }
+}
+
+
+async function guardarCambiosPelicula() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    
+    if (!id) {
+        alert('ID de película no encontrado');
+        return;
+    }
+
+
+    const duracion = parseInt(document.getElementById('durationmovie').value);
+    const anioLanzamiento = parseInt(document.getElementById('yearmovie').value);
+    const idGenero = parseInt(document.getElementById('generos').value);
+
+    const peliculaActualizada = {
+        id_pelicula: parseInt(id),
+        titulo: document.getElementById('namemovie').value,
+        duracion: duracion,
+        id_genero: idGenero,
+        anio_lanzamiento: anioLanzamiento,
+        fecha_estreno: document.getElementById('moviepremiere').value,
+        clasificacion: document.getElementById('clasmovie').value
+    };
+
+    try {
+        const response = await fetch(`https://localhost:7254/api/Cine/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(peliculaActualizada)
+        });
+
+
+        console.log('Datos enviados:', peliculaActualizada);
+        console.log('Respuesta status:', response.status);
+
+        if (response.ok) {
+            alert('Película actualizada correctamente');
+            window.location.href = 'consultarPeliculas.html';
+        } else {
+            const errorData = await response.text();
+            console.error('Error response:', errorData);
+            alert('Error al actualizar la película: ' + errorData);
+        }
+    } catch (error) {
+        console.error("Error al actualizar la película:", error);
+        alert('Error al guardar los cambios: ' + error.message);
+    }
+}
+
+
+function formatearFechaInput(fecha) {
+    if (!fecha) return '';
+    const date = new Date(fecha);
+    return date.toISOString().split('T')[0];
+}
 
 async function eliminar_pelicula(id) {
     try {
-        if (window.confirm("Seguro que desea registrar la baja de la película?")) {
-            const response = await fetch(`https://localhost:7254/api/Cine/${id}`, {method: 'DELETE'});
-            if(response.ok){
-                consultar_peliculas()
-            }else{
-                alert('No se pudo eliminar la pelicula');
-            }
+        if (confirm("¿Está seguro que desea eliminar esta película?")) {
+            const response = await fetch(`https://localhost:7254/api/Cine/eliminar/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            });
             
+            console.log('Delete response status:', response.status);
+
+            if (response.ok) {
+                alert('Película eliminada correctamente');
+                await consultar_peliculas();
+            } else {
+                const errorData = await response.text();
+                console.error('Error response:', errorData);
+                alert('No se pudo eliminar la película: ' + errorData);
+            }
         }
     } catch (error) {
-        console.error("Error al registrar la baja de película:", error);
+        console.error("Error al eliminar la película:", error);
+        alert('Error al eliminar la película: ' + error.message);
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.includes('editarpelicula.html')) {
+        cargarDatosPelicula();
+    } else {
+        cargar_generos();
+    }
+});

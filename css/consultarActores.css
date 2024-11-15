@@ -249,6 +249,31 @@ button:hover {
     transition: filter 0.3s;
 }
 
+/* JS */
+.actor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
+.actor-table th,
+.actor-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.actor-table th {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.actor-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.actor-table tr:hover {
+    background-color: #ddd;
+}
 
  

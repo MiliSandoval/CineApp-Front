@@ -36,22 +36,44 @@
     <main class="main-content">
         <div class="container">
             <h1>Consultar Funciones</h1>
-            <form id="functionsForm">
+            <form id="functionsForm" onsubmit="consultarFunciones(event)">
                 <div class="form-group">
-                    <label for="movie">Película:</label>
-                    <input type="text" id="movie" name="movie" placeholder="Ingrese el nombre de la película" required>
+                    <label for="genero">Generos:</label>
+                    <select id="generoSelect" required onchange="fetchPeliculas()">
+                        <option value="">Seleccione un genero</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="room">Sala:</label>
-                    <input type="text" id="room" name="room" placeholder="Ingrese el nombre de la sala" required>
+                    <label for="peliculas">Película:</label>
+                    <select id="peliculaSelect" required >
+                        <option value="">Seleccione una película</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="language">Idioma:</label>
-                    <select id="language" name="language" required>
+                    <label for="barrio">Barrio:</label>
+                    <select id="barrioSelect" required onchange="fetchSucursales()">
+                        <option value="">Seleccione un barrio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sucursal">Sucursal:</label>
+                    <select id="sucursalSelect" required onchange="fetchSalas()">
+                        <option value="">Seleccione una sucursal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sala">Sala:</label>
+                    <select id="salaSelect" required >
+                        <option value="">Seleccione una sala</option>
+                    </select>
+                </div>                
+                <div class="form-group">
+                    <label for="idioma">Idioma:</label>
+                    <select id="idioma" name="idioma" required>
                         <option value="">Seleccione un idioma</option>
-                        <option value="es">Español</option>
-                        <option value="en">Inglés</option>
-                        <option value="sub">Subtitulado</option>
+                        <option value="Español">Español</option>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Subtitulado">Subtitulado</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -61,16 +83,32 @@
                         <option value="2D">2D</option>
                         <option value="3D">3D</option>
                         <option value="4D">4D</option>
+                        <option value="Estándar">Estándar</option>
                         <option value="IMAX">IMAX</option>
-                        <option value="Es">Estándar</option>
                     </select>
                 </div>
-                <button type="submit">Consultar Funciones</button>
+                <button id="btnMostrarTabla" type="submit">Consultar Funciones</button>
             </form>
 
             <div id="result" class="result">
                 <!-- Aca aparecen los resultados de las funciones -->
+                <table >
+                    <thead>
+                        <tr>
+                            <th>N° Película</th>
+                            <th>Sala</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                            <th>Idioma</th>
+                            <th>Tipo de Función</th>
+                        </tr>
+                    </thead>
+                    <tbody id="funciones-body">
+                        <!-- Resultados de funciones -->
+                    </tbody>
+                </table>
             </div>
+            
         </div>
     </main>
     
@@ -94,6 +132,6 @@
         </div>
     </footer>
 
-    <script src="..."></script>
+    <script src="js/consultarFunciones.js"></script>
 </body>
 </html>
