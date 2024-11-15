@@ -1,13 +1,11 @@
 document.getElementById("ticketForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    // Obtener el número de ticket ingresado
     const ticketNumber = document.getElementById("ticketNumber").value;
     const resultContainer = document.getElementById("result");
-    resultContainer.innerHTML = ""; // Limpiar contenido previo
+    resultContainer.innerHTML = ""; 
 
     try {
-        // Realizar la petición a la API para obtener las butacas
         const response = await fetch(`https://localhost:7254/api/Cine/butacas/disponibles?ticket=${ticketNumber}`);
         
         if (!response.ok) {
@@ -16,11 +14,9 @@ document.getElementById("ticketForm").addEventListener("submit", async function 
 
         const butacas = await response.json();
 
-        // Crear la tabla con clases de estilo
         const table = document.createElement("table");
         table.classList.add("styled-table");
         
-        // Crear encabezado de la tabla
         const thead = document.createElement("thead");
         thead.innerHTML = `
             <tr>
@@ -33,7 +29,6 @@ document.getElementById("ticketForm").addEventListener("submit", async function 
         `;
         table.appendChild(thead);
 
-        // Crear cuerpo de la tabla y llenarlo con las butacas disponibles
         const tbody = document.createElement("tbody");
         butacas.forEach(butaca => {
             const row = document.createElement("tr");
@@ -48,7 +43,6 @@ document.getElementById("ticketForm").addEventListener("submit", async function 
         });
         table.appendChild(tbody);
 
-        // Mostrar la tabla de resultados en el contenedor
         resultContainer.appendChild(table);
         resultContainer.style.display = "block";
 

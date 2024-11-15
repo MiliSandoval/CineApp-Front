@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     branchForm.addEventListener('submit', async function (event) {
         event.preventDefault();
         
-        // Obtener el barrio seleccionado
         const functionType = document.getElementById('functionType').value;
         if (!functionType) {
             alert("Seleccione un barrio.");
@@ -11,17 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            // Realizar la solicitud a la API
             const response = await fetch(`https://localhost:7254/api/Cine/sucursales?barrio=${functionType}`);
             if (!response.ok) {
                 throw new Error("Error al consultar sucursales");
             }
             
-            // Obtener y procesar los datos de las sucursales
             const sucursales = await response.json();
             const resultDiv = document.getElementById('result');
             
-            // Generar el contenido de la tabla
             if (sucursales.length > 0) {
                 let tableHTML = `
                     <table class="table">
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     </table>
                 `;
 
-                // Mostrar la tabla en el contenedor de resultados
                 resultDiv.innerHTML = tableHTML;
                 resultDiv.style.display = 'block';
             } else {

@@ -7,13 +7,12 @@ const inputFV = document.getElementById('forma-venta-select');
 const inputSucursal = document.getElementById('sucursal-select');
 const inputDescuento = document.getElementById('descuento');
 const inputPrecio = document.getElementById('total-price');
-let selectedSeats = []; // Para almacenar las butacas seleccionadas
+let selectedSeats = []; 
 
 async function crearcomp(event) {
     event.preventDefault();
     console.log('Formulario enviado'); 
 
-    // Obtener valores de los campos
     const pelicula = inputPelicula.value;
     const funcion = inputFuncion.value;
     const cliente = inputCliente.value;
@@ -22,7 +21,7 @@ async function crearcomp(event) {
     const sucursal = inputSucursal.value;
     const descuento = inputDescuento.value || 0;
     const precio = inputPrecio.textContent.replace('$', '').trim();
-    const butacas = selectedSeats.join(','); // Unir las butacas seleccionadas en un string
+    const butacas = selectedSeats.join(',');
 
     if (!funcion || !butacas || !cliente || !fp || !fv || !sucursal) {
         alert('Por favor, complete todos los campos obligatorios.');
@@ -36,7 +35,7 @@ async function crearcomp(event) {
         descuento: descuento,
         cantidad: selectedSeats.length,
         precio: precio,
-        id_butaca: butacas, // Enviar las butacas seleccionadas
+        id_butaca: butacas,
         id_comprobanteNavigation: {
             id_comprobante: 0,
             fecha: new Date().toISOString(),
@@ -48,7 +47,6 @@ async function crearcomp(event) {
         }
     };
 
-    // Enviar el comprobante al backend
     try {
         const response = await fetch('https://localhost:7254/api/Cine/crear', {
             method: 'POST',
@@ -61,8 +59,8 @@ async function crearcomp(event) {
         if (response.ok) {
             alert('Comprobante creado con éxito');
             form.reset();
-            selectedSeats = []; // Reiniciar las butacas seleccionadas
-            document.getElementById('seat-map').innerHTML = ''; // Limpiar mapa de asientos
+            selectedSeats = [];
+            document.getElementById('seat-map').innerHTML = ''; 
         } else {
             alert('Error al crear el comprobante. Por favor, revise los datos.');
         }
@@ -73,7 +71,6 @@ async function crearcomp(event) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Obtener películas
     fetch("https://localhost:7254/api/Cine/pelis")
         .then(response => response.json())
         .then(data => {
@@ -86,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-    // Obtener datos para cliente, forma de pago, forma de venta, sucursal
     fetch("https://localhost:7254/api/clientes")
         .then(response => response.json())
         .then(data => {
@@ -162,7 +158,7 @@ async function fetchAvailableSeats() {
         const response = await fetch(`https://localhost:7254/api/Cine/butacas/disponibles?ticket=${selectedFunctionId}`);
         const data = await response.json();
         const seatMap = document.getElementById("seat-map");
-        seatMap.innerHTML = ""; // Limpiar el mapa de asientos
+        seatMap.innerHTML = ""; 
 
         data.forEach(seat => {
             const seatButton = document.createElement("button");
@@ -188,7 +184,7 @@ function toggleSeatSelection(seatId) {
 }
 
 function updateTotalPrice() {
-    const pricePerSeat = 155; // Precio fijo por butaca
+    const pricePerSeat = 155; 
     const totalPrice = pricePerSeat * selectedSeats.length;
     inputPrecio.textContent = `$${totalPrice.toFixed(2)}`;
 }

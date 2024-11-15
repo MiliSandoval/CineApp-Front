@@ -4,11 +4,9 @@ document.getElementById("promotionForm").addEventListener("submit", async functi
     const resultDiv = document.getElementById("result");
 
     try {
-        // Llamada a la API
         const response = await fetch(`https://localhost:7254/api/Cine/promociones/sucursales?sucursal=${branchID}`);
         const promociones = await response.json();
 
-        // Crear la tabla
         let table = `
             <table class="table">
                 <thead>
@@ -36,9 +34,8 @@ document.getElementById("promotionForm").addEventListener("submit", async functi
             </table>
         `;
 
-        // Insertar la tabla en el resultado
         resultDiv.innerHTML = table;
-        resultDiv.style.display = "block"; // Mostrar el contenedor de resultados
+        resultDiv.style.display = "block"; 
     } catch (error) {
         console.error("Error al obtener las promociones:", error);
         resultDiv.innerHTML = "<p class='error'>No se pudieron cargar las promociones.</p>";

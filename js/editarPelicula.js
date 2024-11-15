@@ -47,7 +47,6 @@ async function crearPelicula(event) {
         const anio = parseInt(document.getElementById('yearmovie').value.trim());
         const idGenero = parseInt(document.getElementById('generos').value);
 
-        // Crear el objeto película
         const pelicula = {
             titulo: document.getElementById('namemovie').value.trim(),
             duracion: duracion,

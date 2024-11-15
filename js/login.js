@@ -1,4 +1,3 @@
-// Agregamos un listener al formulario para manejar el envío
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;

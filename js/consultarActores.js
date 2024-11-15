@@ -1,5 +1,5 @@
 document.getElementById("actorForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Evita el envío del formulario
+    event.preventDefault(); 
 
     const movieID = document.getElementById("movieID").value;
     const resultDiv = document.getElementById("result");
@@ -10,10 +10,8 @@ document.getElementById("actorForm").addEventListener("submit", async function (
 
         const data = await response.json();
         
-        // Limpia cualquier resultado anterior
         resultDiv.innerHTML = "";
 
-        // Crear tabla
         const table = document.createElement("table");
         table.className = "actor-table";
         table.innerHTML = `
@@ -31,7 +29,6 @@ document.getElementById("actorForm").addEventListener("submit", async function (
             </tbody>
         `;
 
-        // Insertar filas
         const tbody = table.querySelector("tbody");
         data.forEach(actor => {
             const row = document.createElement("tr");
@@ -46,7 +43,6 @@ document.getElementById("actorForm").addEventListener("submit", async function (
             tbody.appendChild(row);
         });
 
-        // Añadir tabla al div de resultados
         resultDiv.appendChild(table);
         resultDiv.style.display = "block";
 
